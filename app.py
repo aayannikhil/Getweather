@@ -53,3 +53,7 @@ place_time = driver.find_element_by_class_name('today_nowcard-timestamp').text
 place_temp = driver.find_element_by_class_name('today_nowcard-temp').text
 print(place_output)
 print(place_time)
+print(place_temp)
+
+driver.close()
+

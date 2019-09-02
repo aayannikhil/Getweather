@@ -43,8 +43,11 @@ myElem = WebDriverWait(driver, 5).until(
 
 posts = driver.find_elements_by_class_name('styles__itemLink__23h5a')
 
+d=dict()
 for x, y in enumerate(posts):
-    print(str(x+1)+' --> ', y.text)
+    d[x+1]=y.text
+
+print(d.items)
 
 
 a=input("enter number: ")

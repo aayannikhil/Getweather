@@ -23,38 +23,34 @@ if len(argv) == 4:
 elif len(argv) == 3:
     date = argv[2]
 
-
-def getHTML(url):
-    response = requests.get(url)
-    return BeautifulSoup(response.content, 'lxml')
-
-
 options = webdriver.ChromeOptions()
 options.add_argument('--ignore-certificate-errors')
 options.add_argument('--incognito')
 options.add_argument('--headless')
 driver = webdriver.Chrome(options=options)
-driver.get("https://weather.com/search/enhancedlocalsearch?where=" +
-           place + "&loctypes=1/4/5/9/11/13/19/21/1000/1001/1003/&from=hdr")
+# driver.get("https://weather.com/search/enhancedlocalsearch?where=" + place + "&loctypes=1/4/5/9/11/13/19/21/1000/1001/1003/&from=hdr")
 
 # BeautifulSoup(driver.page_source, 'lxml')
 
-myElem = WebDriverWait(driver, 5).until(
-    EC.presence_of_element_located((By.CSS_SELECTOR, 'ul>li>a.styles__itemLink__23h5a')))
+# myElem = WebDriverWait(driver, 5).until(
+#     EC.presence_of_element_located((By.CSS_SELECTOR, 'ul>li>a.styles__itemLink__23h5a')))
 
-posts = driver.find_elements_by_class_name('styles__itemLink__23h5a')
+# posts = driver.find_elements_by_class_name('styles__itemLink__23h5a')
 
-d=dict()
-for x, y in enumerate(posts):
-    d[x+1] = y.get_attribute("href")
-    print(str(x+1)+' --> ',y.text)
+# d=dict()
+# for x, y in enumerate(posts):
+#     d[x+1] = y.get_attribute("href")
+#     print(str(x+1)+' --> ',y.text)
 
-desired_place=int(input("\nEnter your desired place number :-> "))
-if desired_place in d.keys():
-    link=d[desired_place]
+# desired_place=int(input("\nEnter your desired place number :-> "))
+# if desired_place in d.keys():
+#     link=d[desired_place]
 
-print(link)
-# driver.get("https://weather.com/search/enhancedlocalsearch?where=" +
-           place + "&loctypes=1/4/5/9/11/13/19/21/1000/1001/1003/&from=hdr")
+# getting user choice place link
+driver.get('https://weather.com/weather/today/l/INXX0038:1:IN')
+place_output = driver.find_element_by_class_name('today_nowcard-location').text
+place_time = driver.find_element_by_class_name('today_nowcard-timestamp').text
+print(place_output)
+print(place_time)
 
-# BeautifulSoup(driver.page_source, 'lxml')
+

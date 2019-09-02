@@ -50,7 +50,6 @@ driver = webdriver.Chrome(options=options)
 driver.get('https://weather.com/weather/today/l/INXX0038:1:IN')
 place_output = driver.find_element_by_class_name('today_nowcard-location').text
 place_time = driver.find_element_by_class_name('today_nowcard-timestamp').text
+place_temp = driver.find_element_by_class_name('today_nowcard-temp').text
 print(place_output)
 print(place_time)
-
-

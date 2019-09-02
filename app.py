@@ -37,7 +37,7 @@ driver = webdriver.Chrome(options=options)
 driver.get("https://weather.com/search/enhancedlocalsearch?where=" +
            place + "&loctypes=1/4/5/9/11/13/19/21/1000/1001/1003/&from=hdr")
 
-soup = BeautifulSoup(driver.page_source, 'lxml')
+# BeautifulSoup(driver.page_source, 'lxml')
 
 myElem = WebDriverWait(driver, 5).until(
     EC.presence_of_element_located((By.CSS_SELECTOR, 'ul>li>a.styles__itemLink__23h5a')))
@@ -53,4 +53,8 @@ desired_place=int(input("\nEnter your desired place number :-> "))
 if desired_place in d.keys():
     link=d[desired_place]
 
+print(link)
+# driver.get("https://weather.com/search/enhancedlocalsearch?where=" +
+           place + "&loctypes=1/4/5/9/11/13/19/21/1000/1001/1003/&from=hdr")
 
+# BeautifulSoup(driver.page_source, 'lxml')

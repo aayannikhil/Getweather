@@ -8,6 +8,7 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+import pandas as pd
 
 
 #---------GET INPUT FROM COMMAND LINE ARGV---------#
@@ -45,10 +46,11 @@ posts = driver.find_elements_by_class_name('styles__itemLink__23h5a')
 
 d=dict()
 for x, y in enumerate(posts):
-    d[x+1]=y.text
+    d[x+1] = y.get_attribute("href")
+    print(str(x+1)+' --> ',y.text)
 
-print(d.items)
+desired_place=int(input("\nEnter your desired place number :-> "))
+if desired_place in d.keys():
+    link=d[desired_place]
 
-
-a=input("enter number: ")
 

@@ -23,37 +23,74 @@ if len(argv) == 4:
 elif len(argv) == 3:
     date = argv[2]
 
-options = webdriver.ChromeOptions()
-options.add_argument('--ignore-certificate-errors')
-options.add_argument('--incognito')
-options.add_argument('--headless')
-driver = webdriver.Chrome(options)
-# driver.get("https://weather.com/search/enhancedlocalsearch?where=" + place + "&loctypes=1/4/5/9/11/13/19/21/1000/1001/1003/&from=hdr")
+try:
+    # options = webdriver.ChromeOptions()
+    # options.add_argument('--ignore-certificate-errors')
+    # options.add_argument('--incognito')
+    # options.add_argument('--headless')
+    # driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome()
 
-# BeautifulSoup(driver.page_source, 'lxml')
+    # driver.get("https://weather.com/search/enhancedlocalsearch?where=" + place + "&loctypes=1/4/5/9/11/13/19/21/1000/1001/1003/&from=hdr")
 
-# myElem = WebDriverWait(driver, 5).until(
-#     EC.presence_of_element_located((By.CSS_SELECTOR, 'ul>li>a.styles__itemLink__23h5a')))
+    # myElem = WebDriverWait(driver, 5).until(
+    #     EC.presence_of_element_located((By.CSS_SELECTOR, 'ul>li>a.styles__itemLink__23h5a')))
 
-# posts = driver.find_elements_by_class_name('styles__itemLink__23h5a')
+    # posts = driver.find_elements_by_class_name('styles__itemLink__23h5a')
 
-# d=dict()
-# for x, y in enumerate(posts):
-#     d[x+1] = y.get_attribute("href")
-#     print(str(x+1)+' --> ',y.text)
+    # d=dict()
+    # for x, y in enumerate(posts):
+    #     d[x+1] = y.get_attribute("href")
+    #     print(str(x+1)+' --> ',y.text)
 
-# desired_place=int(input("\nEnter your desired place number :-> "))
-# if desired_place in d.keys():
-#     link=d[desired_place]
+    # desired_place=int(input("\nEnter your desired place number :-> \n"))
+    # if desired_place in d.keys():
+    #     link=d[desired_place]
 
-# getting user choice place link
-driver.get('https://weather.com/weather/today/l/INXX0038:1:IN')
-place_output = driver.find_element_by_class_name('today_nowcard-location').text
-place_time = driver.find_element_by_class_name('today_nowcard-timestamp').text
-place_temp = driver.find_element_by_class_name('today_nowcard-temp').text
-print(place_output)
-print(place_time)
-print(place_temp)
+    # getting user choice place link
+    # driver.get(link)
+    # place_output = driver.find_element_by_class_name('today_nowcard-location').text
+    # place_time = driver.find_element_by_class_name('today_nowcard-timestamp').text
+    # place_temp = driver.find_element_by_class_name('today_nowcard-temp').text
+    # place_phrase = driver.find_element_by_class_name('today_nowcard-phrase').text
+    # place_feels = driver.find_element_by_class_name('today_nowcard-feels').text
+    # place_hilo = driver.find_element_by_class_name('today_nowcard-hilo').text
 
-driver.close()
+    # daily
+    # print(place_output)
+    # print(place_time)
+    # print(place_temp)
+    # print(place_phrase)
+    # print(place_feels)
+    # print(place_hilo)
+
+    # hourly
+    # driver.get("https://weather.com/weather/hourbyhour/l/" + link[36:])
+    driver.get("https://weather.com/weather/hourbyhour/l/" + "INXX0038:1:IN")
+
+    # hourly_place_title = driver.find_element_by_class_name('hourly-page-title').text
+    # main_info = driver.find_element_by_class_name('styles__wwirData__qsqOf').text
+    m=[]
+    p=[]
+    hourly_info = driver.find_elements_by_css_selector('.twc-table>thead>tr>th')
+    hourly_info1 = driver.find_elements_by_css_selector('.twc-table>tbody>tr')
+
+    for x in hourly_info:
+        m.append(x.text)
+
+    for y in hourly_info1:
+        trim=y.text.replace('\n',' ')
+        p.append(y.trim)
+
+    # print(hourly_place_title)
+    # print(main_info)
+    # print(hourly_info)
+    # print(hourly_info1)
+    print(m)
+    print(p)
+
+    driver.quit()
+
+except Exception as e:
+    driver.quit()
 

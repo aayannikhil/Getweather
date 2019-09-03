@@ -27,7 +27,7 @@ options = webdriver.ChromeOptions()
 options.add_argument('--ignore-certificate-errors')
 options.add_argument('--incognito')
 options.add_argument('--headless')
-driver = webdriver.Chrome(options=options)
+driver = webdriver.Chrome(options)
 # driver.get("https://weather.com/search/enhancedlocalsearch?where=" + place + "&loctypes=1/4/5/9/11/13/19/21/1000/1001/1003/&from=hdr")
 
 # BeautifulSoup(driver.page_source, 'lxml')

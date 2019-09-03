@@ -33,20 +33,22 @@ pip3 install requirements.txt or python3 -m pip install requirements.txt
 
 ## Sample Input
 
+```
 python3 app.py delhi,india monthly
+```
 
 ## Image below show the sample output received by running app.py
 
-**Daily Output**
+###Daily Output
 ![Sample Email](Images/daily.png)
 
-**Hourly Output**
+###Hourly Output**
 ![Sample Email](Images/hourly.png)
 
-**Monthly Output**
+###Monthly Output**
 ![Sample Email](Images/monthly.png)
 
-**Package upload code to PYPI**
+###Package upload code to PYPI**
 ![Sample Email](Images/pip.png)
 
 

@@ -54,7 +54,7 @@ try:
         driver.get("https://weather.com/weather/hourbyhour/l/" + link[36:])
         hourly_place_title = driver.find_element_by_class_name(
             'hourly-page-title').text
-        print(hourly_place_title)
+        print(hourly_place_title+'\n')
         m = []
         p = []
         hourly_info_head = driver.find_elements_by_css_selector(

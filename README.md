@@ -1,4 +1,4 @@
-# CloudSEK-weather
+# Getweather
 
 This repo contains a weather web crawling application fulfilling all the essentials mentioned in the task.
 

@@ -56,7 +56,7 @@ python3 app.py delhi,india monthly
 
 ## Authors
 
-* **[Nikhil Gupta](https://github.com/nguptaa)**
+* **[Nikhil Gupta](https://github.com/aayannikhil)**
 
 ## License
 
